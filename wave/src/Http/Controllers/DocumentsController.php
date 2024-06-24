@@ -57,7 +57,7 @@ class DocumentsController extends Controller
         $ocr_text = str_replace('"','\'',$ocr_text);
 
         ############################################################################ Detect File Type
-        $prompt_second = 'For the given text, can you provide a JSON representation with key and values in hebrew that strictly follows this schema:{ }';
+        /*$prompt_second = 'For the given text, can you provide a JSON representation with key and values in hebrew that strictly follows this schema:{ }';
         $post_second = array (
             'api-key' => '2A6F1N8D', 
             'text' => $ocr_text,
@@ -68,7 +68,7 @@ class DocumentsController extends Controller
         curl_setopt ($ch, CURLOPT_POSTFIELDS, $post_second);
         curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
         $result_curl_second=curl_exec ($ch);
-        curl_close ($ch); 
+        curl_close ($ch); */
         
 
         // Store file information in the database
@@ -77,7 +77,7 @@ class DocumentsController extends Controller
         $uploadedFile->original_name = $file->getClientOriginalName();
         $uploadedFile->file_path = $filePath;
         $uploadedFile->ocr_txt = $ocr_text;
-        $uploadedFile->ocr_json = $result_curl_second;
+        //$uploadedFile->ocr_json = $result_curl_second;
         $uploadedFile->user_id = Auth::id();
 
         $uploadedFile->save();
