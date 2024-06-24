@@ -33,6 +33,23 @@ class DocumentsController extends Controller
 
      
         echo $curl_filename = storage_path("app\public\\").$filePath;
+
+        if (file_exists($curl_filename)) {
+            echo "The file $curl_filename exists";
+        } else {
+            echo "The file $curl_filename does not exist";
+        }
+
+        echo $curl_filename_a = storage_path("app/public/").$filePath;
+
+        if (file_exists($curl_filename_a)) {
+            echo "The file $curl_filename_a exists";
+        } else {
+            echo "The file $curl_filename_a does not exist";
+        }
+
+
+
         die();
 
         # Get OCR text
