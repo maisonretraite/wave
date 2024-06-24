@@ -32,8 +32,8 @@ class DocumentsController extends Controller
 
 
      
-        $curl_filename = storage_path("app\public\\").$filePath;
-
+        echo $curl_filename = storage_path("app\public\\").$filePath;
+        die();
 
         # Get OCR text
         $post = array (
