@@ -38,6 +38,12 @@ Route::group(['middleware' => 'wave'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function(){
+
+	Route::get('/documents', '\Wave\Http\Controllers\DocumentsController@index')->name('document.index');
+    Route::get('/documents/create', DocumentController::class . '@create')->name('documents.create');
+    Route::post('/documents', '\Wave\Http\Controllers\DocumentsController@store')->name('documents.store');
+	
+	/* Original Routes */
 	Route::get('settings/{section?}', '\Wave\Http\Controllers\SettingsController@index')->name('wave.settings');
 
 	Route::post('settings/profile', '\Wave\Http\Controllers\SettingsController@profilePut')->name('wave.settings.profile.put');
