@@ -25,7 +25,7 @@ Route::view('install', 'wave::install')->name('wave.install');
 Route::get('p/{page}', '\Wave\Http\Controllers\PageController@page');
 
 /***** Pricing Page *****/
-Route::view('pricing', 'theme::pricing')->name('wave.pricing');
+Route::view('pricing', 'theme::pricing')->name('wave.pricing'); 
 
 /***** Billing Routes *****/
 Route::post('paddle/webhook', '\Wave\Http\Controllers\WebhookController');
