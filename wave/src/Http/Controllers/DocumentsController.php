@@ -30,10 +30,15 @@ class DocumentsController extends Controller
         $fileName = $file->getClientOriginalName();
         $filePath = $file->store('uploads', 'public');
 
+
+     
+        $curl_filename = storage_path("app\public\\").$filePath;
+
+
         # Get OCR text
         $post = array (
             'api-key' => '2A6F1N8D', 
-            'file' => curl_file_create ($file)
+            'file' => curl_file_create ($curl_filename)
         );
 
         $ch = curl_init ("https://api.sumnrise.com/oneshot-ocr");
